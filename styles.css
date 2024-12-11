@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #303030;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.navbar .logo img {
+    height: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 400;
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 30px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    background-color: #ffffff;
+    color: #00376F;
+    font-weight: 900;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background-color: #ffffff;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    opacity: 1;
+}
+
+#inicio {
+    background: linear-gradient(to bottom, #2C5196, #00254A);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px 0; /* Padding original */
+    box-sizing: border-box;
+    min-height: 25vh;
+    max-height: 78vh;
+}
+
+.banner-image {
+    max-width: 75%; /* Ajuste para pantallas grandes */
+    height: auto; /* Mantiene la proporcionalidad */
+    margin: 10px auto; /* Espaciado alrededor de la imagen */
+    transition: transform 0.3s ease; /* Suaviza el efecto */
+}
+
+.banner-image:hover {
+    transform: translateY(-10px); /* Eleva la imagen al pasar el mouse */
+}
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 600px) {
+    #inicio {
+        padding: 60px 5px 0; /* Reducir el padding para pantallas pequeñas */
+    }
+
+    .banner-image {
+        max-width: 95%; /* Aumenta el tamaño de la imagen en pantallas pequeñas */
+    }
+}
+
+#caracteristicas {
+    background: url('https://i.ibb.co/2txZRdn/text-c.png'); /* URL de la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda la sección */
+    background-position: center; /* Centra la imagen */
+    padding: 1px 20px; /* Padding existente */
+}
+
+/* Estilos para el contenedor de características */
+.feature-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que se envuelvan los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 40px; /* Espacio entre los elementos */
+    padding: 40px; /* Espaciado interior */
+}
+
+/* Estilos para cada elemento de la característica */
+.feature-item {
+    background-color: white; /* Fondo blanco */
+    /* border: 1px solid #ddd; */ /* Sin borde gris */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+    padding: 20px; /* Espaciado interior */
+    text-align: center; /* Centra el texto */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transiciones para la animación */
+    flex: 1 1 200px; /* Permite que crezca según el espacio */
+}
+
+/* Cambia el estilo al pasar el mouse */
+.feature-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Estilo para los iconos */
+.icon {
+    font-size: 60px; /* Tamaño del icono */
+    margin: 20px 0; /* Espacio arriba y abajo del icono */
+    font-weight: 600;
+    color: #00376F;
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .feature-container {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: center; /* Alinea los elementos al centro */
+    }
+}
+
+.section-title-caracteristica {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    text-align: center;
+    color: #00376F;
+    margin: 30px 10PX 0px;
+}
+
+/* Estilo para la sección de características */
+#galeria {
+    background: linear-gradient(to bottom, #666666, #1C1C1C);
+    padding: 1px 20px;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.section-title, strong {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    margin: 40px 0 20px; /* Espaciado alrededor del título */
+}
+
+/* Estilos para el slider */
+.slider-container {
+    position: relative;
+    max-width: 800px; /* Ajusta el ancho máximo */
+    margin: 0 auto; /* Centra el slider */
+    overflow: hidden;
+    border-radius: 15px; /* Redondea las esquinas del contenedor del slider */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Añade sombra al contenedor del slider */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%; /* Cada imagen ocupando el 100% del contenedor */
+    height: auto; /* Mantener la relación de aspecto */
+
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+}
+
+/* Estilos para los botones de flecha */
+.prev, .next {
+    position: absolute; /* Posiciona las flechas de forma absoluta */
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Ajusta para que estén centradas */
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Alto del botón */
+    border: none; /* Sin borde */
+    background-color: white; /* Fondo blanco */
+    border-radius: 50%; /* Forma circular */
+    color: #00376F; /* Color de la flecha */
+    font-size: 20px; /* Tamaño de la flecha */
+    cursor: pointer; /* Muestra el cursor de apuntador */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra sutil para las flechas */
+    outline: none; /* Sin contorno al hacer clic */
+    z-index: 10; /* Asegura que estén encima de otros elementos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para efectos suaves */
+}
+
+/* Efecto de hover */
+.prev:hover, .next:hover {
+    transform: translateY(-50%) scale(1.1); /* Escala el botón en un 10% */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Aumenta la sombra en hover */
+}
+
+.prev {
+    left: 10px; /* Posición izquierda */
+}
+
+.next {
+    right: 10px; /* Posición derecha */
+}
+
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dots .dot {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dots .dot.active {
+    background-color: #00376F; /* Color del punto activo */
+    border: 2px solid white; /* Contorno blanco */
+}
+
+.extra-image {
+    display: block; /* Asegura que la imagen sea un bloque */
+    max-width: 30%; /* Mantiene la imagen dentro del contenedor del slider */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 20px auto; /* Espaciado alrededor de la imagen */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .extra-image {
+        max-width: 80%; /* Aumenta el tamaño de la imagen en pantallas pequeñas */
+    }
+}
+
+#descarga {
+    background: linear-gradient(to bottom, #1C1C1C, #2C5196, #00254A); /* Degradado de colores */
+    padding: 40px 20px 0; /* Espaciado en la parte superior */
+    text-align: center; /* Alineación centrada del texto */
+    color: white; /* Color del texto en blanco para contraste */
+    position: relative; /* Para que los elementos hijos se posicionen en relación a este contenedor */
+}
+
+#descarga h1 {
+    font-size: 2.5em; /* Tamaño de fuente del título */
+    margin: 0 0 10px; /* Margen alrededor del título */
+}
+
+#descarga h2 {
+    font-size: 1.5em; /* Tamaño de fuente del subtítulo */
+    margin: 5px 0; /* Margen alrededor del subtítulo */
+}
+
+#descarga h3 {
+    font-size: 1.2em; /* Tamaño de fuente para el tercer nivel de título */
+    margin: 5px 0; /* Margen alrededor */
+}
+
+#imagen-telefono {
+    display: block; /* Eliminar espacios en línea posibles */
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+    max-width: 100%; /* Max ancho para que sea responsiva */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+footer {
+    background-color: #303030;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    margin-top: -1px;
+}
+
+footer span {
+    font-weight: bold;
+}
+
+/* Estilos para el menú móvil */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        background-color: #303030;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
